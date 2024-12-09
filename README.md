@@ -30,7 +30,7 @@ System prompt is hard-coded in the code. User prompts are created one at a time 
 ### 1. Analyze PDFs
 
 ```bash
-python pdfs_similarity.py -h
+python pdfs_similarity.py
 ```
 
 ### Command Line Options
@@ -65,7 +65,7 @@ usage: pdfs_similarity.py [-h] [--pdf_folder PDF_FOLDER] [--suffix SUFFIX] [--ou
 
 
 ```bash
-python project_analyser.py -h
+python project_analyser.py
 ```
 
 ### Command Line Options
