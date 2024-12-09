@@ -14,13 +14,12 @@ System prompt is hard-coded in the code. User prompts are created one at a time 
 
 ## Setup Instructions
 
-### Ubuntu 20.04
 
 1. Sign up for a HuggingFace account and setup an access token. Save this token for later use. 
 2. Setup CUDA 12.1, CUDNN 9.3, PyTorch '2.4.1+cu121', transformers 4.47.0, use Python 3.10.
 3. `pip install -r requirements.txt`
-4. `pip install huggingface_hub` for logging in via the terminal.
-5. Login to your HuggingFace account in your Ubuntu terminal where you are running the program, by running `huggingface-cli login` and enter your access token saved earlier. 
+4. `pip install huggingface_hub` for logging in via the terminal/cmd.
+5. Login to your HuggingFace account in your terminal/cmd where you are running the program, by running `huggingface-cli login` and enter your access token saved earlier. 
 6. Go to `utils.py` and choose your `DEFAULT_MODEL` from the options given. Other models are not tested but may work. 
 7. Based on the `DEFAULT_MODEL` selected, request access to the gated repo on the Huggingface portal, by filling in your details.
 
