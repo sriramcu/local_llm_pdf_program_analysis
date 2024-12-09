@@ -14,7 +14,7 @@ This project includes two programs:
 1. **`pdfs_similarity.py`**: Analyzes the structural and content similarities between multiple PDF files.
 2. **`project_analyser.py`**: Analyzes the structure and content of coding projects.
 
-Both programs use a text-generation model (`meta-llama`) to process input data and generate insights. The list of models used is mentioned in the setup instructions. This project uses only LLM inference. The inference is completely offline, without any API keys required, thereby ensuring privacy and security.
+Both programs use a text-generation model (`meta-llama`) to process input data and generate insights. This project uses only LLM inference. The inference is completely offline, without any API keys required, thereby ensuring privacy and security.
 
 System prompt is hard-coded in the code. User prompts are created one at a time for each PDF/program file.
 
