@@ -2,6 +2,13 @@
 
 Local LLM inference for analysing multiple PDF files and coding projects in any programming language.
 
+## Models Used
+
+1. meta-llama/Llama-3.2-1B-Instruct
+2. meta-llama/Llama-3.2-3B-Instruct
+3. meta-llama/Llama-3.1-8B-Instruct
+
+
 ## Overview
 This project includes two programs:
 1. **`pdfs_similarity.py`**: Analyzes the structural and content similarities between multiple PDF files.
