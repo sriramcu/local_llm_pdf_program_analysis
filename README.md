@@ -1,5 +1,7 @@
 # Coding Project Analyzer and PDF Similarity Using local LLMs
 
+Local LLM inference for analysing multiple PDF files and coding projects in any programming language.
+
 ## Overview
 This project includes two programs:
 1. **`pdfs_similarity.py`**: Analyzes the structural and content similarities between multiple PDF files.
