@@ -95,6 +95,8 @@ def main():
             suffix = suffix[:-1] + "_" + timestamp
     else:
         suffix = timestamp
+        
+    os.makedirs("model_outputs", exist_ok=True)
     output_filepath = os.path.join("model_outputs", f"project_analysis_{suffix}.txt")
 
     with open(output_filepath, "w", encoding="utf-8") as f:

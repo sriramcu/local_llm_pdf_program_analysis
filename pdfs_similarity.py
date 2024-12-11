@@ -107,6 +107,7 @@ def main():
         suffix = timestamp
 
     # Save the results
+    os.makedirs("model_outputs", exist_ok=True)
     model_output_filepath = os.path.join("model_outputs", f"model_output_{suffix}.txt")
     with open(model_output_filepath, "w", encoding="utf-8") as f:
         f.write("Prompts:\n")
