@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 *.pyo
 !requirements.txt
+test_project/
