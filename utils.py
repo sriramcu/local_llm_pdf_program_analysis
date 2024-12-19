@@ -53,6 +53,7 @@ def convert_pdf_to_markdown(pdf_file):
                 for i, table in enumerate(tables, 1):
                     markdown_content += f"**Table {i}:**\n\n"
                     for row in table:
+                        row = [cell if cell is not None else '' for cell in row]
                         markdown_content += "| " + " | ".join(row) + " |\n"
                     markdown_content += "|---" * len(table[0]) + "|\n\n"
 
