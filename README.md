@@ -1,6 +1,6 @@
-# Coding Project Analyzer and PDF Similarity Using local LLMs
+# Local Privacy-Preserving Analysis of Coding Projects with LLMs
 
-Local LLM inference for analysing multiple PDF files and coding projects in any programming language.
+This project allows developers to analyze coding projects locally while maintaining data privacy. It is ideal for those who need to gain insights into another team's codebase without exposing sensitive information.
 
 ## Models Used
 
@@ -8,67 +8,30 @@ Local LLM inference for analysing multiple PDF files and coding projects in any 
 2. meta-llama/Llama-3.2-3B-Instruct
 3. meta-llama/Llama-3.1-8B-Instruct
 
+## Project Overview
 
-## Overview
-This project includes two programs:
-1. **`pdfs_similarity.py`**: Analyzes the structural and content similarities between multiple PDF files.
-2. **`project_analyser.py`**: Analyzes the structure and content of coding projects.
+The project consists of two main scripts:
 
-Both programs use a text-generation model (`meta-llama`) to process input data and generate insights. This project uses only LLM inference. The inference is completely offline, without any API keys required, thereby ensuring privacy and security.
+1. **`project_analyser.py`**: Examines the structural and content aspects of coding projects.
+2. **`pdfs_similarity.py`**: Compares the structure and content of multiple PDF files and converts them to markdown format.
 
-System prompt is hard-coded in the code. User prompts are created one at a time for each PDF/program file.
-
+Both scripts leverage a text-generation model (`meta-llama`) to process data and generate insights. The entire process is conducted offline, ensuring the privacy and security of your data. System prompts are predefined in the code, and user prompts are generated for each file individually.
 
 ## Setup Instructions
 
+1. Create a HuggingFace account and obtain an access token. Save this token for later use.
+2. Install CUDA 12.1, CUDNN 9.3, PyTorch '2.4.1+cu121', and transformers 4.47.0, and ensure you're using Python 3.10.
+3. Run `pip install -r requirements.txt` to install necessary dependencies.
+4. Execute `pip install huggingface_hub` to enable logging in from the terminal or command prompt.
+5. Log into your HuggingFace account via the terminal or command prompt by executing `huggingface-cli login` and providing your access token.
+6. In `utils.py`, select your `DEFAULT_MODEL` from the available options. Note that other models have not been tested but may work.
+7. Request access to the gated repository on HuggingFace based on your chosen `DEFAULT_MODEL` by submitting your details.
 
-1. Sign up for a HuggingFace account and setup an access token. Save this token for later use. 
-2. Setup CUDA 12.1, CUDNN 9.3, PyTorch '2.4.1+cu121', transformers 4.47.0, use Python 3.10.
-3. `pip install -r requirements.txt`
-4. `pip install huggingface_hub` for logging in via the terminal/cmd.
-5. Login to your HuggingFace account in your terminal/cmd where you are running the program, by running `huggingface-cli login` and enter your access token saved earlier. 
-6. Go to `utils.py` and choose your `DEFAULT_MODEL` from the options given. Other models are not tested but may work. 
-7. Based on the `DEFAULT_MODEL` selected, request access to the gated repo on the Huggingface portal, by filling in your details.
+## Usage Instructions
 
+### 1. Analyzing a Coding Project
 
-## How to Use
-
-### 1. Analyze PDFs
-
-```bash
-python pdfs_similarity.py
-```
-
-### Command Line Options
-
-```
-usage: pdfs_similarity.py [-h] [--pdf_folder PDF_FOLDER] [--suffix SUFFIX] [--output_format {markdown,html}] [--interactive]
-```
-
-### Options
-
-- `-h`, `--help`  
-  Show the help message and exit.
-
-- `--pdf_folder PDF_FOLDER`  
-  Path to the folder containing input PDFs.
-
-- `--suffix SUFFIX`  
-  Suffix for the output file which stores the analysis. If not provided, a timestamp will be used. Output file will not store analysis from the interactive mode.
-
-- `--output_format {markdown,html}`  
-  Format for PDF content extraction, to be used in the user prompts. You can choose between:
-  - `markdown`
-  - `html`
-
-- `--interactive`  
-  Enter an interactive loop for further inputs after the initial analysis, type "exit" to quit.
-
----
-
-
-### 2. Analyse Coding Project
-
+To analyze a coding project, execute the following command:
 
 ```bash
 python project_analyser.py
@@ -80,18 +43,62 @@ python project_analyser.py
 usage: project_analyser.py [-h] --project_folder PROJECT_FOLDER [--suffix SUFFIX]
 ```
 
-### Options
+#### Options
 
 - `-h`, `--help`  
-  Show the help message and exit.
+  Display help information and exit.
 
 - `--project_folder PROJECT_FOLDER`  
-  Path to the folder containing the coding project.
+  Specify the path to the folder containing the coding project.
 
 - `--suffix SUFFIX`  
-  Suffix for the output file which stores the analysis. If not provided, a timestamp will be used.
+  Define a suffix for the output file that stores the analysis results. If omitted, a timestamp will be used.
 
 - `--interactive`  
-  Enter an interactive loop for further inputs after the initial analysis.
+  Engage in an interactive loop for additional inputs after the initial analysis.
 
 ---
+
+### 2. Analyzing PDFs
+
+To analyze PDFs, use the following command:
+
+```bash
+python pdfs_similarity.py
+```
+
+In this case, the system instruction is to find structural similarities between multiple PDF files by converting them to markdown/HTML format. You may change the system instruction in this python file in case you want to do something else with the PDFs, such as summarizing them.
+
+### Command Line Options
+
+```
+usage: pdfs_similarity.py [-h] [--pdf_folder PDF_FOLDER] [--suffix SUFFIX] [--output_format {markdown,html}] [--interactive]
+```
+
+#### Options
+
+- `-h`, `--help`  
+  Display help information and exit.
+
+- `--pdf_folder PDF_FOLDER`  
+  Specify the path to the folder containing input PDF files.
+
+- `--suffix SUFFIX`  
+  Define a suffix for the output file that stores the analysis results. If omitted, a timestamp will be used. The output file does not store analysis from interactive mode.
+
+- `--output_format {markdown,html}`  
+  Choose the format for extracting PDF content to be used in user prompts. Options include:
+  - `markdown`
+  - `html`
+
+- `--interactive`  
+  Engage in an interactive loop for additional inputs after the initial analysis. Type "exit" to quit.
+
+---
+
+### 3. Utility Scripts
+
+`generate_readymade_prompt.py` and `pdf_to_markdown.py` are utility scripts that can be used to generate prompts for analysis for both the above usecases and to convert PDFs to markdown format, respectively, in case your PC is not powerful enough and you have access to a proprietary Generative AI service.
+
+---
+
